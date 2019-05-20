@@ -12,11 +12,12 @@ news = tree.findall("channel/item/description")
 all_words = []
 for new in news:
     words = new.text
-    words = words.split(' ')
+    words = words.lower().split(' ')
     all_words += words
 long_words = []
 for word in all_words:
     if len(word) > 6:
         long_words.append(word)
 count = Counter(long_words)
+
 print('топ 10 самых часто встречающихся слов длиннее 6 символов:', count.most_common(10))

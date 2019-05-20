@@ -13,11 +13,11 @@ with open(file, 'rb') as f:
         words = news['description']
         words = words.split(' ')
         all_words += words
-    words_short = []
+    long_words = []
     for word in all_words:
         if len(word) > 6:
-            words_short.append(word)
-    count = Counter(words_short)
+            long_words.append(word.lower())
+    count = Counter(long_words)
     print('топ 10 самых часто встречающихся слов длиннее 6 символов:', count.most_common(10))
 
 
